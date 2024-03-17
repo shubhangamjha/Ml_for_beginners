@@ -1,0 +1,15 @@
+version: '1.0'
+services:
+  jupyter-lab-:
+    build: .
+    ports:
+      - 8888:8888
+    volumes:
+      - ./ML for beginners:/ML_for_beginners
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
